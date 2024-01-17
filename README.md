@@ -43,7 +43,7 @@ Para este proyecto se trabajó con la **Bases de Víctimas Fatales en Siniestros
 En este [documento](NOTAS_HOMICIDIOS_SINIESTRO_VIAL.pdf) se detallan todas las definiciones manejadas en los datos y en el desarrollo de este proyecto. Por otra parte, en este [link](https://data.buenosaires.gob.ar/dataset/victimas-siniestros-viales) se encuentran los datos utilizados en el análisis.
 
 
--`Proceso de ETL (Extracción, limpieza y carga de datos)` se realiza la extraccíon y limpieza de los datos de los dos dataset `HECHOS` y `VICTIMAS`, a tráves de la utilización de Pandas y Jupyter Netbook.[ETL](ETL.ipnyb) Eliminando nulos, duplicados, con transformaciones necesarias como cambio en los tipos de datos, eliminación de columnas y unión de las tablas en un archivo `siniestros_limpio.csv` [archivo](data/siniestos_limpio.csv).
+-`Proceso de ETL (Extracción, limpieza y carga de datos)` se realiza la extraccíon y limpieza de los datos de los dos dataset `HECHOS` y `VICTIMAS`, a tráves de la utilización de Pandas y Visual Code.[ETL](ETL.ipnyb) Eliminando nulos, duplicados, con transformaciones necesarias como cambio en los tipos de datos, eliminación de columnas y unión de las tablas en un archivo `siniestros_limpio.csv` [archivo](data/Homicidios_hechos.csv).
 
 -`Proceso de EDA (Análisis Exploratorio de los datos)` una vez que los datos están limpios, es momento de revisar las relaciones que existen entre las variables numéricas y categóricas de los datasets, encontrar si hay presencia de outliers o anomalías (que no tienen que ser errores necesariamente), y se verificó si hay algún patrón o conocimiento que sirva en un análisis posterior. [EDA](EDA.ipnyb)
 
@@ -58,7 +58,8 @@ En el transcurso de los años, los accidentes con víctimas fatales muestran: pa
 Los meses con más victimas fatales son **Diciembre** (86) y **Agosto**(71); mientras que los días de la semana **Sábado** (114) y **Domingo** (114) tienen la mayor cantidad de víctimas.
 
 
-![Mapa de Calor](/images/image.png)
+(![MAPA CORRELACION](https://github.com/mariebraca21/PI2_Siniestros_viales/assets/86693811/dbe4017c-4498-457c-8423-2a635b762bea)
+)
 
 Los horarios críticos de los siniestros viales están relacionados con los momentos del ingreso a la jornada laboral (5-9h), el momento del almuerzo (12-14h) y la salida del trabajo (17-18h). Mientras que los fines de semana están relacionados con las salidas nocturnas (4-7h)
 
@@ -66,15 +67,7 @@ Los horarios críticos de los siniestros viales están relacionados con los mome
 
 Edad de las víctimas : La distribución del rango etario de víctimas, resulta para los `Masculinos` entre 20 y 40 años; mientras que para los `Femeninos` entre 40, 60 y 80 años.
 
-![Rango etario](/images/edad.png)
-
 El patrón de correlación Edad y Hora de las variables númericas se analiza agregando la variable Sexo, de lo que resulta la conclusión que los horarios en que los accidentes son protagonizados por Masculinos es al horario de ingreso y egreso laboral, mientras que para los Femeninos es en el horario cercano al almuerzo.
-
-![Relacion edad hora](/images/relacionedadhora.png)
-
-Utilizando la herramienta GeoPandas y extrayendo los datos de los detalles de los Barrios que conforman las 15 comunas de CABA; resulta el análisis de las coordenadas geográficas y comunas de CABA, que demostro que las comunas con más siniestos son las 1, 4 , 9, 8 y 7. 
-
-![Tabla comuna](/images/tablacomuna.PNG)
 
 Los siniestros se producen en 62% de los casos en el tipo de calle `Avenida` y en el 82% de los casos se corresponden con un Cruce entre calles. Lo que resulta un patrón que se repite a lo largo de los años.
 
@@ -84,12 +77,12 @@ Para el caso de la variable `Participantes` de los sinietros; se analiza a `Acus
 
 ### Indicadores de Rendimiento Clave KPI⛔
 
-Una vez finalizado el Análisis Exploratorio, se utiliza el dataset resultante [Siniestros](data/siniestos_limpio.csv) y los extraidos de la página oficial de CABA con los datos de las comunas [Comunas](data/comunas.xlsx); para trabajar en la herramienta PowerBi a fin de obtener los KPI (Indicadores de Rendimiento Clave) y un `dashboard` de presentación del informe y Visualización de datos.
-Se utliza la herramienta NovyPro para mostrar el `dashboard` resultante de manera interactiva. [link](https://www.novypro.com/project/proyecto-individual-02--siniestros-viales-caba--dataanalytics)
+Una vez finalizado el Análisis Exploratorio, se utiliza el dataset resultante [Siniestros](data/Homicidos_hechos.csv) y los extraidos de la página oficial de CABA con los datos de las comunas [Comunas](data/comunas.xlsx); para trabajar en la herramienta PowerBi a fin de obtener los KPI (Indicadores de Rendimiento Clave) y un `dashboard` de presentación del informe y Visualización de datos.
+
 
 KPI Propuestos
 
-![KPI](/images/kpis.PNG)
+
 
  - **Reducir en un 10% la tasa de homicidios en siniestros viales de los últimos seis meses, en CABA, en comparación con la tasa de homicidios en siniestros viales del semestre anterior**
 
@@ -115,7 +108,6 @@ Se define la cantidad de accidentes fatales de peatones en siniestros viales com
 Cantidad de Accidentes Mortales en Moto = Tomando la variable `Victima` que se iguale a el campo [PEATON] del dataset 
 
 
-![Indicadores](/images/indicadores.PNG)
 
 
 ## **Conclusiones**⚠️ 🚧
